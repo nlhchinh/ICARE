@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFE4EC"
+    tools:context=".logic.activity.PeriodManageActivity">
+
+    <!-- Header: logo + menu (Giữ nguyên cấu trúc nhưng đồng bộ với các màn hình khác) -->
+    <ImageView
+        android:id="@+id/logo_app"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/ic_logo_icare"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp" />
+
+    <ImageButton
+        android:id="@+id/menu_button"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:contentDescription="menu icon"
+        android:src="@drawable/ic_menu"
+        android:background="@null"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp" />
+
+    <!-- Tiêu đề: "Hôm nay" với font và màu nhất quán -->
+    <TextView
+        android:id="@+id/text_today"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hôm nay"
+        android:fontFamily="@font/hachi_maru_pop"
+        android:textColor="#4B2C2C"
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@id/logo_app"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp" />
+
+    <!-- Vòng tròn hiển thị thông tin chính -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ellipse"
+        android:layout_width="230dp"
+        android:layout_height="230dp"
+        android:background="@drawable/circle_bg_period_manage"
+        app:layout_constraintTop_toBottomOf="@id/text_today"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp">
+
+        <TextView
+            android:id="@+id/month_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tháng 10"
+            android:fontFamily="@font/hachi_maru_pop"
+            android:textColor="#4B2C2C"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@id/day_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/day_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ngày 4"
+            android:fontFamily="@font/hachi_maru_pop"
+            android:textColor="#4B2C2C"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/month_text" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Danh sách thông tin chi tiết -->
+    <LinearLayout
+        android:id="@+id/info_list"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/custom_button_background_2"
+        app:layout_constraintTop_toBottomOf="@id/ellipse"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp"
+        android:layout_marginHorizontal="32dp"
+        android:padding="16dp">
+
+        <TextView
+            android:text="Giai đoạn hiện tại: Hành kinh"
+            android:textSize="16sp"
+            android:fontFamily="@font/hachi_maru_pop"
+            android:textColor="#4B2C2C"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:text="Giai đoạn kế tiếp sau: 1 ngày"
+            android:textSize="16sp"
+            android:fontFamily="@font/hachi_maru_pop"
+            android:textColor="#4B2C2C"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:text="Khả năng có thai: Thấp"
+            android:textSize="16sp"
+            android:fontFamily="@font/hachi_maru_pop"
+            android:textColor="#4B2C2C"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent" />
+    </LinearLayout>
+
+    <!-- Nút "Thay đổi số liệu" được thiết kế lại -->
+    <Button
+        android:id="@+id/change_data_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Thay đổi số liệu"
+        android:fontFamily="@font/hachi_maru_pop"
+        android:background="@drawable/custom_button_background"
+        app:layout_constraintTop_toBottomOf="@id/info_list"
+        app:layout_constraintStart_toStartOf="@id/info_list"
+        app:layout_constraintEnd_toEndOf="@id/info_list"
+        android:layout_marginTop="24dp"
+        android:paddingVertical="16dp"
+        android:textColor="#4B2C2C"
+        android:textSize="18sp"/>
+
+    <!-- Thanh điều hướng dưới cùng -->
+    <LinearLayout
+        android:id="@+id/bottom_nav_bar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#F8E0E6"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingVertical="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/nav_home"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:contentDescription="Trang chủ"
+            android:src="@drawable/ic_home" />
+
+        <ImageView
+            android:id="@+id/nav_stats"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:contentDescription="Thống kê"
+            android:src="@drawable/ic_stats" />
+
+        <ImageView
+            android:id="@+id/nav_period"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:contentDescription="Kinh nguyệt"
+            android:src="@drawable/ic_strawberry" />
+
+        <ImageView
+            android:id="@+id/nav_calendar"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:contentDescription="Lịch"
+            android:src="@drawable/ic_calendar" />
+
+        <ImageView
+            android:id="@+id/nav_profile"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:contentDescription="Tài khoản"
+            android:src="@drawable/ic_user" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

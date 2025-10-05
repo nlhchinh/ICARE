@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ICare</string>
+    <string name="app_logo">I Care</string>
+
+    <string name="hint_user_name">Tên của nàng...</string>
+    <string name="ask_user_name_text">Xin tên của nàng ạ</string>
+    <string name="agree_button_text">Đồng ý</string>
+    <string name="slogan">Luôn quan tâm đến nàng</string>
+</resources>
